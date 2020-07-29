@@ -1,6 +1,6 @@
 ## Voice of Mordor
 
-Designer loosely-typed interpreter for **vom** programming language
+Interpreter for loosely-typed designer programming language **vom**
 
 ### How to run the interpreter
 
@@ -13,7 +13,7 @@ cargo run
 Currently, this just prints  out the tokens from lexical analysis
 
 ```bash
-cargo run examples/hello_world.vom examples/getting_started.vom
+cargo run examples/hello_world[.vom] examples/getting_started[.vom]
 ```
 
 
@@ -70,7 +70,7 @@ def main:[args,] {
 ### _Gimmicks_
 
 - Arguments are "attached" to functions using the `:` operator
-- Like in rust, loops and conditionals will be able to return values using the `break` keyword
+- Like in rust, loops and conditionals will be able to return values using the `exit` keyword
 
 That's about it for _unique_ features.
 <br />
