@@ -1,0 +1,9 @@
+def main:[] {
+    print:[`Hello, world`];
+
+    let truth = true;
+
+    if (truth == false) {
+        print:[`Lies`];
+    }
+}

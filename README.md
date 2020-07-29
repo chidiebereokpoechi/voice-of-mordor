@@ -5,51 +5,65 @@ Designer loosely-typed interpreter for **vom** programming language
 ### How to run the interpreter
 
 ```bash
- cargo build
- cargo run
+cargo build
+cargo run
 ```
+
+### Run example files 
+Currently, this just prints  out the tokens from lexical analysis
+
+```bash
+cargo run examples/hello_world.vom examples/getting_started.vom
+```
+
 
 ### What it'll look like
   
 ```
 struct Person {
-  init:[name, age] {
-    self.name = name;
-    self.age = age;
-  }
+    init:[name, age] {
+        this.name = name;
+        this.age = age;
+    }
 
-  def speak:[] {
-    print:[`My name is ` + self.name + ` and i'm ` + self.age];
-  }
+    def speak:[] {
+        print:[`My name is ` + this.name + ` and i'm ` + this.age];
+    }
 }
 
 
 def main:[args,] {
-  # This is a comment up top
-  let a = [1, 2, 3, 4]; # Comment by the side
-  let b = a[1];
+    # This is a comment up top
+    let a = [1, 2, 3, 4]; # Comment by the side
+    let b = a[1];
 
-  let c = test a {
-    a -> {
-      break empty;
-    },
-    b -> {
-      break false;
+    let c = test a {
+        a -> {
+            exit empty;
+        },
+        b -> {
+            exit false;
+        }
+    };
+
+    while a < 10 {
+        a = a + 1;
+
+        if a == 5 {
+            exit;
+        }
+
+        # next;
     }
-  };
 
-  while a < 10 {
-    a = a + 1;
-  }
+    let d = if true {
+        exit `The world is indeed round`;
+    } else {
+        exit `The world is flat`;
+    };
 
-  let d = if true {
-    return `The world is indeed round`;
-  } else {
-    return `The world is flat`;
-  };
-
-  print:[a,];
-  print:[`Hello, world`];
+    print:[a,];
+    print:[`Hello, world`];
 }
 ```
 

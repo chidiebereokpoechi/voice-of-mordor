@@ -1,0 +1,45 @@
+struct Person {
+    init:[name, age] {
+        this.name = name;
+        this.age = age;
+    }
+
+    def speak:[] {
+        print:[`My name is ` + this.name + ` and i'm ` + this.age];
+    }
+}
+
+
+def main:[args,] {
+    # This is a comment up top
+    let a = [1, 2, 3, 4]; # Comment by the side
+    let b = a[1];
+
+    let c = test a {
+        a -> {
+            exit empty;
+        },
+        b -> {
+            exit false;
+        }
+    };
+
+    while a < 10 {
+        a = a + 1;
+
+        if a == 5 {
+            exit;
+        }
+
+        # next
+    }
+
+    let d = if true {
+        return `The world is indeed round`;
+    } else {
+        return `The world is flat`;
+    };
+
+    print:[a,];
+    print:[`Hello, world`];
+}
