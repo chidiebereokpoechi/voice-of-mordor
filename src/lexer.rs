@@ -15,13 +15,7 @@ impl Lexer {
     pub fn new(source: String) -> Self {
         Lexer {
             source: source.chars().collect(),
-            tokens: vec![Token::new(
-                TokenType::Begin,
-                String::new(),
-                String::new(),
-                1,
-                1,
-            )],
+            tokens: vec![Token::new(TokenType::Begin, String::new(), 1, 1)],
             start: 0,
             current: 0,
             line: 1,
@@ -225,14 +219,8 @@ impl Lexer {
     }
 
     fn add_token(&mut self, _type: TokenType, literal: String) {
-        let text = &self.source[self.start..self.current];
-        self.tokens.push(Token::new(
-            _type,
-            text.into_iter().collect(),
-            literal,
-            self.line,
-            self.col,
-        ));
+        self.tokens
+            .push(Token::new(_type, literal, self.line, self.col));
         self.col += self.current - self.start;
     }
 }
