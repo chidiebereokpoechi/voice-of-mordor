@@ -1,5 +1,7 @@
 ## Voice of Mordor
 
+<img src="https://user-images.githubusercontent.com/50222963/92097821-69122a00-edd0-11ea-8ca4-98dff122517d.png" alt="Logo" width="200" />
+
 Interpreter for loosely-typed designer programming language **vom**
 
 ### How to run the interpreter
